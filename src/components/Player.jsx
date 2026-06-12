@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function ({ name, symbol }) {
+export default function ({ name, symbol, isActive }) {
     const [isEditName, setEditName] = useState(false);
     const [playerName, setPlayerName] = useState(name);
     function handleEditName() {
@@ -10,7 +10,7 @@ export default function ({ name, symbol }) {
         setPlayerName(event.target.value)
     }
     return (
-        <li>
+        <li className={isActive ? 'active':undefined}>
             <span className='player'>
                 {isEditName ? <input type='text' value={playerName} onChange={handleChange} /> :
                     <span className='player-name'>{playerName}</span>}
